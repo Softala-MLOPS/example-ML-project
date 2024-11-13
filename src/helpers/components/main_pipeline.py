@@ -65,10 +65,10 @@ if __name__ == "__main__":
     kfp.Client().create_run_from_pipeline_func(
         pipeline_func=main_pipeline,
         arguments={  # Example arguments
-            'url': 'https://someurl.com/data.csv',
+            'url': 'http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv',
             'mlflow_experiment_name': 'wine_quality_experiment',
-            'mlflow_tracking_uri': 'http://mlflow-tracking-server',
-            'mlflow_s3_endpoint_url': 'https://s3.amazonaws.com',
+            'mlflow_tracking_uri': 'http://mlflow.mlflow.svc.cluster.local:5000',
+            'mlflow_s3_endpoint_url': 'http://mlflow-minio-service.mlflow.svc.cluster.local:9000',
             'model_name': 'wine_quality_model',
             'alpha': 0.1,
             'l1_ratio': 0.1,
