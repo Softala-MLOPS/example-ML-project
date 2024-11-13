@@ -73,7 +73,7 @@ if __name__ == "__main__":
             'alpha': 0.1,
             'l1_ratio': 0.1,
             'threshold_metrics': {'accuracy': 0.8, 'precision': 0.7}
-        }
+        },
         run_name=run_name,
         experiment_name=experiment_name,  
         mode=kfp.dsl.PipelineExecutionMode.V2_COMPATIBLE,
