@@ -60,6 +60,8 @@ def main_pipeline(url: str,
 
 if __name__ == "__main__":
     import kfp
+    run_name = "demo-run"
+    experiment_name = "demo-experiment"
     kfp.Client().create_run_from_pipeline_func(
         pipeline_func=main_pipeline,
         arguments={  # Example arguments
@@ -72,4 +74,8 @@ if __name__ == "__main__":
             'l1_ratio': 0.1,
             'threshold_metrics': {'accuracy': 0.8, 'precision': 0.7}
         }
+        run_name=run_name,
+        experiment_name=experiment_name,  
+        mode=kfp.dsl.PipelineExecutionMode.V2_COMPATIBLE,
+        enable_caching=False
     )
