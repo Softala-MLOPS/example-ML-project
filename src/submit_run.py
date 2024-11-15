@@ -1,7 +1,7 @@
 # submit_run.py
 import kfp
-from main_pipeline import main_pipeline
-from pipelines import arguments
+from pipelines.pipeline_definitions.pipeline_definition import pipeline
+from pipelines.pipeline_arg.pipeline_arg import arguments
 
 def submit_pipeline():
     client = kfp.Client()  # Connect to Kubeflow Pipelines client
@@ -12,7 +12,7 @@ def submit_pipeline():
 
     # Submit the pipeline run
     client.create_run_from_pipeline_func(
-        pipeline_func=main_pipeline,
+        pipeline_func=pipeline,
         arguments=arguments,
         run_name=run_name,
         experiment_name=experiment_name,

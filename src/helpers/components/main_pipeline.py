@@ -1,11 +1,11 @@
 from kfp import dsl
 from kfp.v2.dsl import pipeline, Input, Output, Dataset, Artifact
 from pull_data_component import pull_data
-from preprocess_component import preprocess
-from train_component import train
-from evaluate_component import evaluate
-from deploy_model_component import deploy_model
-from inference_component import inference
+from steps.components.preprocess_component.preprocess_component import preprocess
+from steps.components.train_component.train_component import train
+from steps.components.evaluate_component.evaluate_component import evaluate
+from steps.components.deploy_model_component.deploy_model_component import deploy_model
+from steps.components.inference_component.inference_component import inference
 
 @pipeline(name="Wine Quality Prediction Pipeline")
 def main_pipeline(url: str, 

@@ -1,16 +1,18 @@
 # pipeline_definitions.py
+from steps.components.pull_data_component.pull_data_component import pull_data
+from steps.components.preprocess_component.preprocess_component import preprocess
+from steps.components.train_component.train_component import train
+from steps.components.evaluate_component.evaluate_component import evaluate
+from steps.components.deploy_model_component.deploy_model_component import deploy_model
+from steps.components.inference_component.inference_component import inference
+
 from kfp import dsl
-from helpers import pull_data
-from helpers import preprocess
-from helpers import train
-from helpers import evaluate
-from helpers import deploy_model
-from helpers import inference
 
 @dsl.pipeline(
     name='demo-pipeline',
     description='An example pipeline for wine quality prediction.'
 )
+
 def pipeline(
     url: str,
     target: str,
@@ -22,6 +24,7 @@ def pipeline(
     l1_ratio: float,
     threshold_metrics: dict,
 ):
+    
     pull_task = pull_data(url=url)
 
     preprocess_task = preprocess(data=pull_task.outputs["data"])

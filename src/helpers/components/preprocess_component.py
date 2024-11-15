@@ -1,6 +1,5 @@
 # preprocess_component.py
 from kfp.v2.dsl import Input, Output, Dataset, Artifact, component
-import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
@@ -12,6 +11,8 @@ def preprocess(
     test_set: Output[Dataset], 
     target: str = "quality"
 ):
+    import pandas as pd
+
     """
     Preprocess data.
     """
