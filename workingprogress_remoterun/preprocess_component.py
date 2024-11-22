@@ -1,25 +1,29 @@
 # preprocess_component.py
 from kfp.v2.dsl import Input, Output, Dataset, Artifact, component
 
-
-@component(base_image="python:3.10", packages_to_install=["numpy", "pandas", "scikit-learn"])
+@component(
+    base_image="python:3.10",
+    packages_to_install=["numpy~=1.26.4", "pandas~=1.4.2", "scikit-learn~=1.0.2"],
+    output_component_file='components/preprocess_component.yaml',
+)
 def preprocess(
-    data: Input[Dataset], 
-    scaler_out: Output[Artifact], 
-    train_set: Output[Dataset], 
-    test_set: Output[Dataset], 
-    target: str = "quality"
+    data: Input[Dataset],
+    scaler_out: Output[Artifact],
+    train_set: Output[Dataset],
+    test_set: Output[Dataset],
+    target: str = "quality",
 ):
+    """
+    Preprocess component.
+    """
     import pandas as pd
     import pickle
     from sklearn.model_selection import train_test_split
     from sklearn.preprocessing import StandardScaler
 
-    """
-    Preprocess data.
-    """
     data = pd.read_csv(data.path)
 
+    # Split the data into training and test sets. (0.75, 0.25) split.
     train, test = train_test_split(data)
 
     scaler = StandardScaler()

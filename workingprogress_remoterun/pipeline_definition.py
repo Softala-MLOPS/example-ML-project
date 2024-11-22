@@ -1,16 +1,12 @@
 # pipeline_definitions.py
-import sys
-
-
-sys.path.append('../../../src')
-from steps.components.pull_data_component.pull_data_component import pull_data
-from steps.components.preprocess_component.preprocess_component import preprocess
-from steps.components.train_component.train_component import train
-from steps.components.deploy_model_component.deploy_model_component import deploy_model
-from steps.components.inference_component.inference_component import inference
+from pull_data_component import pull_data
+from preprocess_component import preprocess
+from train_component import train
+from evaluate_component import evaluate
+from deploy_model_component import deploy_model
+from inference_component import inference
 
 from kfp import dsl
-
 
 @dsl.pipeline(
     name='demo-pipeline',

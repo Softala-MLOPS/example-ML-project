@@ -1,5 +1,4 @@
 # client_connection.py
-# client_connection.py
 import kfp
 
 KUBEFLOW_ENDPOINT = "http://localhost:8080"
