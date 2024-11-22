@@ -4,7 +4,9 @@ from pipeline_definition import pipeline
 from pipeline_arg import arguments
 
 def submit_pipeline():
-    client = kfp.Client()  # Connect to Kubeflow Pipelines client
+
+    client = kfp.Client() 
+    
 
     # Define your experiment and run name
     experiment_name = "demo-experiment"
