@@ -7,6 +7,7 @@ from localrun.components_py.preprocess_component.preprocess_component import pre
 from localrun.components_py.train_component.train_component import train
 from localrun.components_py.deploy_model_component.deploy_model_component import deploy_model
 from localrun.components_py.inference_component.inference_component import inference
+from localrun.components_py.evaluate_component.evaluate_component import evaluate
 
 from kfp.aws import use_aws_secret
 
