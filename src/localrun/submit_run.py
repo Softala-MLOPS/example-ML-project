@@ -1,7 +1,10 @@
 # submit_run.py
 import kfp
-from src.localrun.pipelines.pipeline_definitions.pipeline_definition import pipeline
-from src.localrun.pipelines.pipeline_arg.pipeline_arg import arguments
+import sys
+
+sys.path.append('../../../src')
+from localrun.pipelines.pipeline_definitions.pipeline_definition import pipeline
+from localrun.pipelines.pipeline_arg.pipeline_arg import arguments
 
 def submit_pipeline():
 
