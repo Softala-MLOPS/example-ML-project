@@ -2,7 +2,7 @@
 import kfp
 import sys
 
-sys.path.append('../../../src')
+sys.path.append('../../src')
 from localrun.pipelines.pipeline_definitions.pipeline_definition import pipeline
 from localrun.pipelines.pipeline_arg.pipeline_arg import arguments
 
